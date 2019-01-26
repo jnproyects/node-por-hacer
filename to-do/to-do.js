@@ -42,25 +42,21 @@ const crear = (descripcion) => {
     return listadoPorHacer;
 }
 
-const getListado = () => {
+const getListado = (complet) => {
+
     cargarDB();
+    
+    let nuevoListado = [];
+    
+    listadoPorHacer.filter( tarea => {
 
-    // let index = listadoPorHacer.findIndex( tarea => {
+        if (JSON.parse(tarea.completado) === JSON.parse(complet)) {            
+            nuevoListado.push(tarea);
+        }
         
-    //     return tarea.completado === completado;
+    });
 
-    // });
-
-    // if ( index >= 0) {
-    //     listadoPorHacer[index].completado = completado;
-    //     guardarDB();
-    //     return true;
-    // } else {
-    //     return false;
-    // }
-
-
-    return listadoPorHacer;
+    return nuevoListado;
 }
 
 const actualizar = (descripcion, completado) => {

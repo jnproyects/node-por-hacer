@@ -12,14 +12,12 @@ switch (comando) {
     case 'crear':
 
         let tarea = crear(argv.descripcion);
-        console.log(tarea);
-        
         break;
 
     case 'listar':
 
-        let listado = getListado();
-        
+        let listado = getListado(argv.completado);
+
         for (let tarea of listado) {
             console.log('=======POR HACER========'.green);
             console.log(tarea.descripcion);
